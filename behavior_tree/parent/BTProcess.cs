@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 
 namespace HamsterUtils.BehaviorTree
-{// 开始执行后，就会一直RUNNING，直到到所有子节点执行完毕或遇到错误（子节点返回NO）
+{
+    // 开始执行后，就会一直RUNNING，直到到所有子节点执行完毕或遇到错误（子节点返回NO）
     public class BTProcess : BTParent
     {
         private Queue<BTNode> _Queue = new Queue<BTNode>();

@@ -5,8 +5,8 @@ namespace HamsterUtils.BehaviorTree
 {
     public class Example
     {
-        // 3种复合节点：BTSelector,BTSequence,BTRandom
-        // 1种叶节点：BTLeaf
+        // 4种复合节点：BTSelector, BTSequence, BTRandom, BTProcess
+        // 2种叶节点：BTLeaf, BTWait
         // 1种装饰节点：BTInverser
 
         // 根节点，可以是上面的任意一种，这里以Sequence为例

@@ -1,6 +1,6 @@
 namespace HamsterUtils.BehaviorTree
 {
-    // 子节点依次执行，遇到一个NO就停止，返回NO，所有都执行完返回YES，中途RUNNING就不会执行后面的内容了
+    // 子节点依次执行，遇到一个NO就停止，返回NO，所有都执行完返回YES，中途遇到RUNNING时，会将RUNNING的节点执行完后中断
     public class BTSequence : BTParent
     {
         public BTSequence(params BTNode[] children) : base(children)
