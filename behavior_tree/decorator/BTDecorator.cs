@@ -4,6 +4,6 @@ namespace HamsterUtils.BehaviorTree
 {
     public class BTDecorator : BTNode
     {
-        public BTDecorator(BTNode child) : base((node, delat) => BTState.YES, child) { }
+        public BTDecorator(BTNode child) : base((node, delta) => BTState.YES, child) { }
     }
 }

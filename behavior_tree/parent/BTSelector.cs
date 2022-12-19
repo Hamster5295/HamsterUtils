@@ -5,15 +5,15 @@ namespace HamsterUtils.BehaviorTree
     {
         public BTSelector(params BTNode[] children) : base(children)
         {
-            mRunnable = (node, delta) =>
+            _Runnable = (node, delta) =>
             {
-                if (last == null)
+                if (_LastRunningNode == null)
                 {
-                    foreach (var i in mChildren)
+                    foreach (var i in _Children)
                     {
                         if (i.Run(delta) == BTState.RUNNING)
                         {
-                            last = i;
+                            _LastRunningNode = i;
                             return BTState.RUNNING;
                         }
 
@@ -23,8 +23,8 @@ namespace HamsterUtils.BehaviorTree
                 }
                 else
                 {
-                    var result = last.Run(delta);
-                    if (result != BTState.RUNNING) last = null;
+                    var result = _LastRunningNode.Run(delta);
+                    if (result != BTState.RUNNING) _LastRunningNode = null;
                     return result;
                 }
             };

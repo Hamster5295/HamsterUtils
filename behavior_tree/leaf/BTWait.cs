@@ -2,28 +2,28 @@ namespace HamsterUtils.BehaviorTree
 {
     public class BTWait : BTLeaf
     {
-        private float mTimer = 0, mLength = 0;
-        private bool mIsTicking = false;
+        private float _Timer = 0, _Length = 0;
+        private bool _IsTicking = false;
 
         public BTWait(float length) : base((a, b) => BTState.YES)
         {
-            mLength = length;
-            mRunnable = (node, delta) =>
+            _Length = length;
+            _Runnable = (node, delta) =>
             {
-                if (mIsTicking)
+                if (_IsTicking)
                 {
-                    mTimer -= delta;
-                    if (mTimer <= 0)
+                    _Timer -= delta;
+                    if (_Timer <= 0)
                     {
-                        mIsTicking = false;
+                        _IsTicking = false;
                         return BTState.YES;
                     }
                     return BTState.RUNNING;
                 }
                 else
                 {
-                    mIsTicking = true;
-                    mTimer = mLength;
+                    _IsTicking = true;
+                    _Timer = _Length;
                     return BTState.RUNNING;
                 }
             };

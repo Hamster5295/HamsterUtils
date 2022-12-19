@@ -6,19 +6,19 @@ namespace HamsterUtils.BehaviorTree
     {
         public BTRandom(params BTNode[] children) : base(children)
         {
-            mRunnable = (node, delta) =>
+            _Runnable = (node, delta) =>
             {
-                if (last == null)
+                if (_LastRunningNode == null)
                 {
-                    var picked = mChildren[(int)GD.Randi() % mChildren.Count];
+                    var picked = _Children[(int)GD.Randi() % _Children.Count];
                     var result = picked.Run(delta);
-                    if (result == BTState.RUNNING) last = picked;
+                    if (result == BTState.RUNNING) _LastRunningNode = picked;
                     return result;
                 }
                 else
                 {
-                    var result = last.Run(delta);
-                    if (result != BTState.RUNNING) last = null;
+                    var result = _LastRunningNode.Run(delta);
+                    if (result != BTState.RUNNING) _LastRunningNode = null;
                     return result;
                 }
             };

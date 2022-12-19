@@ -7,15 +7,15 @@ namespace HamsterUtils.BehaviorTree
 
     public class BTLeaf : BTNode
     {
-        private Dictionary<string, object> mDict = new Dictionary<string, object>();
+        private Dictionary<string, object> _Cache = new Dictionary<string, object>();
 
         public BTLeaf(Func<BTNode, float, BTState> r) : base(r) { }
 
         public T Get<T>(string key, T defaultValue)
         {
-            if (mDict.ContainsKey(key))
+            if (_Cache.ContainsKey(key))
             {
-                if (mDict[key] is T t)
+                if (_Cache[key] is T t)
                 {
                     return t;
                 }
@@ -25,9 +25,9 @@ namespace HamsterUtils.BehaviorTree
 
         public void Set(string key, object value)
         {
-            if (!mDict.ContainsKey(key))
-                mDict.Add(key, value);
-            else mDict[key] = value;
+            if (!_Cache.ContainsKey(key))
+                _Cache.Add(key, value);
+            else _Cache[key] = value;
         }
     }
 }

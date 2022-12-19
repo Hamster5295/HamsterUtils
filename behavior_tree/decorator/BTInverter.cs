@@ -4,9 +4,9 @@ namespace HamsterUtils.BehaviorTree
     {
         public BTInveter(BTNode child) : base(child)
         {
-            mRunnable = (node, delta) =>
+            _Runnable = (node, delta) =>
             {
-                var result = mChildren[0].Run(delta);
+                var result = _Children[0].Run(delta);
                 switch (result)
                 {
                     case BTState.YES: result = BTState.NO; break;
