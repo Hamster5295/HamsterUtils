@@ -6,8 +6,9 @@ namespace HamsterUtils.Minimap
     {
         // 当控制者从场景树被删除时释放该信号
         [Signal] public delegate void HostExited(MinimapItem which);
+        [Signal] public delegate void Inited(MinimapItem which);
 
-        [Export] private NodePath HostPath { get; set; }
+        [Export] private NodePath _HostPath;
 
         // 直接使用该节点的父节点作为控制者
         [Export] public bool ParentAsHost { get; private set; } = true;
@@ -44,7 +45,7 @@ namespace HamsterUtils.Minimap
             if (ParentAsHost)
                 Host = GetParentOrNull<Node2D>();
             else
-                Host = GetNodeOrNull<Node2D>(HostPath);
+                Host = GetNodeOrNull<Node2D>(_HostPath);
 
             if (Host == null)
             {
@@ -57,6 +58,7 @@ namespace HamsterUtils.Minimap
             Minimap.AddItem(this);
             _IsReady = true;
 
+            EmitSignal(nameof(Inited), this);
             _Inited();
         }
 

@@ -46,9 +46,6 @@ script = ExtResource( 4 )
 [node name="Viewport" type="Viewport" parent="UILayer/UI/MinimapOutline/Minimap"]
 size = Vector2( 280, 205 )
 
-[node name="Cam" type="Camera2D" parent="UILayer/UI/MinimapOutline/Minimap/Viewport"]
-current = true
-
 [node name="ZoomSlider" type="HSlider" parent="UILayer/UI"]
 margin_left = 705.0
 margin_top = 305.0
