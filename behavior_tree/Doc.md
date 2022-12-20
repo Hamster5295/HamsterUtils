@@ -1,9 +1,7 @@
 # HamsterUtil.BehaviorTree
 一个简单的行为树，节点结构完全由代码实现
 
-> 例子: **./common/Example.cs**
-
-## 快速开始
+## 使用示例
 
 下面的代码演示如何实现一个这样的行为树:
 
@@ -52,3 +50,6 @@ public override void _Ready()
     );
 }
 ```
+
+## 示例
+[示例文件](Example.cs)
