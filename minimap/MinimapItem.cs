@@ -28,7 +28,18 @@ namespace HamsterUtils.Minimap
 
         private bool _IsReady = false;
 
-        public override void _Ready()
+        public override void _Ready() => CallDeferred(nameof(Init));
+
+        public override void _Process(float delta)
+        {
+            if (!_IsReady) return;
+
+            if (PositionSync) Position = Host.GlobalPosition;
+            if (RotationSync) Rotation = Host.GlobalRotation;
+            if (ScaleSync) Scale = Host.Scale;
+        }
+
+        private void Init()
         {
             if (ParentAsHost)
                 Host = GetParentOrNull<Node2D>();
@@ -40,26 +51,13 @@ namespace HamsterUtils.Minimap
                 GD.PrintErr("MinimapItem需要一个Node2D或其子类型的节点作为其控制者! ");
                 return;
             }
-
             Host.Connect("tree_exited", this, nameof(OnHostExited), flags: (uint)ConnectFlags.Oneshot);
 
-            CallDeferred(nameof(Init));
-        }
-
-        private void Init()
-        {
             GetParent().RemoveChild(this);
             Minimap.AddItem(this);
             _IsReady = true;
-        }
 
-        public override void _Process(float delta)
-        {
-            if (!_IsReady) return;
-
-            if (PositionSync) Position = Host.GlobalPosition;
-            if (RotationSync) Rotation = Host.GlobalRotation;
-            if (ScaleSync) Scale = Host.Scale;
+            _Inited();
         }
 
         private void OnHostExited()
@@ -67,5 +65,7 @@ namespace HamsterUtils.Minimap
             EmitSignal(nameof(HostExited), this);
             if (AssociateWithHost) QueueFree();
         }
+
+        public virtual void _Inited() { }
     }
 }

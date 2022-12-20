@@ -12,8 +12,11 @@
 [node name="Cam" type="Camera2D" parent="."]
 current = true
 
-[node name="MinimapCam" type="Node" parent="Cam"]
+[node name="MinimapCam" type="Node2D" parent="Cam"]
 script = ExtResource( 3 )
+PositionSync = true
+
+[node name="Cam" type="Camera2D" parent="Cam/MinimapCam"]
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 
@@ -57,6 +60,7 @@ step = 0.01
 value = 1.0
 exp_edit = true
 script = ExtResource( 6 )
+_CamPath = NodePath("../../../Cam/MinimapCam")
 
 [node name="Icon" type="Sprite" parent="."]
 texture = ExtResource( 1 )
