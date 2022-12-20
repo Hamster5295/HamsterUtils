@@ -48,7 +48,7 @@ public override void _Ready()
 
             // 睡觉的代码
 
-            return BTState.YES; //这是最后一个子节点，返回啥都无所谓了，因为不会有下一个节点需要控制
+            return BTState.YES; //这是最后一个子节点，因为不会有下一个节点需要控制，且不是一个长时间的任务，所以返回除了RUNNING之外的都可以，这里用YES
         })
     );
 }
