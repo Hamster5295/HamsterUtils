@@ -1,4 +1,6 @@
 # HamsterUtils.Component
+> namespace HamsterUtils
+
 一个类似于Unity中MonoBehavior的脚本
 
 ## 成员

@@ -1,4 +1,6 @@
 # HamsterUtils.Minimap
+> namespace HamsterUtils.Minimap
+
 一个可以快速建立小地图的工具
 
 ## 快速入门

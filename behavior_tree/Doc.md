@@ -1,4 +1,6 @@
-# HamsterUtil.BehaviorTree
+# 行为树
+> namespace HamsterUtils.BehaviorTree
+
 一个简单的行为树，节点结构完全由代码实现
 
 ## 使用示例
