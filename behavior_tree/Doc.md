@@ -13,11 +13,12 @@
 ```C#
 // 决定现在饿不饿
 bool isHungry = false;
+BTSelector tree;
 
 public override void _Ready()
 {
 // 根节点是一个选择器，他会一直执行子节点，直到有一个子节点返回了 BTState.YES
-    var tree = new BTSelector(
+    tree = new BTSelector(
 
 // 这是一个序列节点，他会顺次执行子节点，直到有一个子节点返回RUNNING或者NO，就会终止(RUNNING会执行完，但是不会执行RUNNING后面的节点)
         new BTSequence(
@@ -47,9 +48,14 @@ public override void _Ready()
 
             // 睡觉的代码
 
-            return BTState.YES; //这是最后一个子节点，返回啥都无所谓了，因为不会有下一个节点需要控制
+            return BTState.YES; //这是最后一个子节点，因为不会有下一个节点需要控制，且不是一个长时间的任务，所以返回除了RUNNING之外的都可以，这里用YES
         })
     );
+}
+
+// 在_Process里运行这个行为树，输入delta作为时间变化量
+public override void _Process(float delta){
+    tree.Run(delta);
 }
 ```
 
