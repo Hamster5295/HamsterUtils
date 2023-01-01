@@ -1,6 +1,6 @@
 using System;
 
-namespace HamsterUtils.BehaviorTree
+namespace HamsterUtils
 {
     public class BTDecorator : BTNode
     {

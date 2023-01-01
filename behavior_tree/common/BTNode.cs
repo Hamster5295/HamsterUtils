@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace HamsterUtils.BehaviorTree
+namespace HamsterUtils
 {
     // 所有节点的父类，拥有基础逻辑
     public abstract class BTNode

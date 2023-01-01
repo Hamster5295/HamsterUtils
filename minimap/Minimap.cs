@@ -1,7 +1,7 @@
 using Godot;
 using System.Collections.Generic;
 
-namespace HamsterUtils.Minimap
+namespace HamsterUtils
 {
     public class Minimap : ViewportContainer
     {

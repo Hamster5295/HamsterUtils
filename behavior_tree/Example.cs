@@ -1,7 +1,7 @@
 using System;
 // 演示一下这个行为树的使用方法
 
-namespace HamsterUtils.BehaviorTree
+namespace HamsterUtils
 {
     public class Example
     {

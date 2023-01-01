@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace HamsterUtils.BehaviorTree
+namespace HamsterUtils
 {
     // 叶节点，可以自定义逻辑，没有子项
 

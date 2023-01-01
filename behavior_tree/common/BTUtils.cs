@@ -1,4 +1,4 @@
-namespace HamsterUtils.BehaviorTree
+namespace HamsterUtils
 {
     public class BTUtils
     {

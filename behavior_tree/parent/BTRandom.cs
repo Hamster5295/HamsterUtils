@@ -1,6 +1,6 @@
 using Godot;
 
-namespace HamsterUtils.BehaviorTree
+namespace HamsterUtils
 {// 随机从子节点中选择一个执行
     public class BTRandom : BTParent
     {

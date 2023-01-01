@@ -1,6 +1,6 @@
 using Godot;
 
-namespace HamsterUtils.Minimap
+namespace HamsterUtils
 {
     public class MinimapItem : Node2D
     {
