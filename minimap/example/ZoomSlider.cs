@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-namespace HamsterUtils.Minimap
+namespace HamsterUtils
 {
     // 一个可以控制小地图缩放的横向Slider
     // 用于演示的工具，基本上不可复用，不过改一改拿出来也不是不行

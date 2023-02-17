@@ -18,10 +18,13 @@ namespace HamsterUtils
     }
 
     则摄像机匀速向上运动
+
+    如果你发现你需要用Node2D或者Control的一些属性（例如位置，大小），请使用Component2D和ComponentUI
     */
+
     public class Component<T> : Node where T : Node
     {
-        private const int MAX_SEARCH_DEPTH = 5;
+        private const int MAX_SEARCH_DEPTH = 10;
 
         public T Host { get; private set; }
 
