@@ -1,37 +1,13 @@
+using Godot;
+
 namespace HamsterUtils
 {
-    public partial class CommonData : DictionaryData<string, object>
+    public abstract class CommonData : DictionaryData<string, Variant>
     {
-        public static int GetInt(string key, int defaultVal = 0)
-        {
-            if (Get(key, defaultVal) is int i) return i;
-            else
-            {
-                Log.E(key + "对应的值不是int类型!");
-                return defaultVal;
-            }
-        }
+        public static T Get<[MustBeVariant] T>(string key, T defaultValue)
+            => DictionaryData<string, Variant>.Get(key, Variant.From<T>(defaultValue)).As<T>();
 
-        public static float GetFloat(string key, float defaultVal = 0)
-        {
-            if (Get(key, defaultVal) is float i) return i;
-            else
-            {
-                Log.E(key + "对应的值不是float类型!");
-                return defaultVal;
-            }
-        }
-
-        public static string GetString(string key, string defaultVal = "")
-        {
-            if (Get(key, defaultVal) is string i) return i;
-            else
-            {
-                Log.E(key + "对应的值不是string类型!");
-                return defaultVal;
-            }
-        }
-
-        protected override string GetSavePath() => "common_data.json";
+        public static void Set<[MustBeVariant] T>(string key, T value)
+            => Set(key, Variant.From(value));
     }
 }
