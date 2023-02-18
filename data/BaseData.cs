@@ -4,26 +4,29 @@ namespace HamsterUtils
 {
     public abstract class BaseData : Node
     {
-        private File file = new File();
+        private FileAccess file;
 
-        public override void _ExitTree()
+        protected bool Read(out Variant result)
         {
-            file.Close();
-        }
-
-        protected bool Read(out JSONParseResult result)
-        {
-            result = null;
+            result = new Variant();
             var path = GetSavePath();
-            if (!file.FileExists(path)) return false;
-            file.Open(path, File.ModeFlags.ReadWrite);
-            result = JSON.Parse(file.GetLine());
+            if (!FileAccess.FileExists(path)) return false;
+            file = FileAccess.Open(path, FileAccess.ModeFlags.ReadWrite);
+            result = Json.ParseString(file.GetLine());
             return true;
         }
 
-        protected void Save(object obj)
+        protected bool Read<T>(out T result)
         {
-            file.StoreLine(JSON.Print(obj));
+            bool isSuccessful = Read(out var r);
+            result = r.As<T>();
+            return isSuccessful;
+        }
+
+        protected void Save(Variant obj)
+        {
+            file.StoreLine(Json.Stringify(obj));
+            file.Flush();
         }
 
         protected abstract string GetSavePath();

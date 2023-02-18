@@ -9,7 +9,7 @@ namespace HamsterUtils
     使用示例:
     把一个Node放在Camera2D的子节点，然后给Node添加以下脚本:
 
-    public class CameraMovement : Component<Camera2D>{
+    public partial class CameraMovement : Component<Camera2D>{
         float speed = 10;
 
         public override void _Process(float delta){
@@ -22,7 +22,7 @@ namespace HamsterUtils
     如果你发现你需要用Node2D或者Control的一些属性（例如位置，大小），请使用Component2D和ComponentUI
     */
 
-    public class Component<T> : Node where T : Node
+    public partial class Component<T> : Node where T : Node
     {
         private const int MAX_SEARCH_DEPTH = 10;
 

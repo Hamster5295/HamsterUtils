@@ -1,6 +1,6 @@
 namespace HamsterUtils
 {
-    public class BTInveter : BTDecorator
+    public partial class BTInveter : BTDecorator
     {
         public BTInveter(BTNode child) : base(child)
         {

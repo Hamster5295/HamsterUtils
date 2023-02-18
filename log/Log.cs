@@ -2,7 +2,7 @@ using Godot;
 
 namespace HamsterUtils
 {
-    public class Log
+    public partial class Log
     {
         public static bool EnableLog { get; set; } = true;
 

@@ -3,7 +3,7 @@ using Godot;
 namespace HamsterUtils
 {
     // 不要被这玩意的名字迷惑了，他其实是一个Node，应当作为目标摄像机的子节点
-    public class MinimapCamera2D : MinimapItem
+    public partial class MinimapCamera2D : MinimapItem
     {
         [Export] private float _ZoomSpeed = 0.1f;
 
@@ -29,11 +29,11 @@ namespace HamsterUtils
             _Cam.MakeCurrent();
         }
 
-        public override void _Process(float delta)
+        public override void _Process(double delta)
         {
             if ((_TargetZoom - _Cam.Zoom).LengthSquared() > 1e-4)
             {
-                _Cam.Zoom = _Cam.Zoom.LinearInterpolate(_TargetZoom, _ZoomSpeed);
+                _Cam.Zoom = _Cam.Zoom.Lerp(_TargetZoom, _ZoomSpeed);
             }
             else _Cam.Zoom = _TargetZoom;
         }

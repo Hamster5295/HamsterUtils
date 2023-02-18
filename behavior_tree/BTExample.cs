@@ -3,7 +3,7 @@ using System;
 
 namespace HamsterUtils
 {
-    public class BTExample
+    public partial class BTExample
     {
         // 4种复合节点：BTSelector, BTSequence, BTRandom, BTProcess
         // 2种叶节点：BTLeaf, BTWait

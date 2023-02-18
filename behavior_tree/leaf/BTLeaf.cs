@@ -5,7 +5,7 @@ namespace HamsterUtils
 {
     // 叶节点，可以自定义逻辑，没有子项
 
-    public class BTLeaf : BTNode
+    public partial class BTLeaf : BTNode
     {
         private Dictionary<string, object> _Cache = new Dictionary<string, object>();
 

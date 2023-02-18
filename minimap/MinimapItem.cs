@@ -2,7 +2,7 @@ using Godot;
 
 namespace HamsterUtils
 {
-    public class MinimapItem : Node2D
+    public partial class MinimapItem : Node2D
     {
         // 当控制者从场景树被删除时释放该信号
         [Signal] public delegate void HostExited(MinimapItem which);
@@ -31,7 +31,7 @@ namespace HamsterUtils
 
         public override void _Ready() => CallDeferred(nameof(Init));
 
-        public override void _Process(float delta)
+        public override void _Process(double delta)
         {
             if (!_IsReady) return;
 
@@ -52,7 +52,7 @@ namespace HamsterUtils
                 GD.PrintErr("MinimapItem需要一个Node2D或其子类型的节点作为其控制者! ");
                 return;
             }
-            Host.Connect("tree_exited", this, nameof(OnHostExited), flags: (uint)ConnectFlags.Oneshot);
+            Host.Connect("tree_exited",new Callable(this,nameof(OnHostExited)),flags: (uint)ConnectFlags.OneShot);
 
             GetParent().RemoveChild(this);
             Minimap.AddItem(this);

@@ -1,6 +1,6 @@
 namespace HamsterUtils
 {
-    public class CommonData : DictionaryData<string, object>
+    public partial class CommonData : DictionaryData<string, object>
     {
         public static int GetInt(string key, int defaultVal = 0)
         {

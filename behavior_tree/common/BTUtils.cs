@@ -1,6 +1,6 @@
 namespace HamsterUtils
 {
-    public class BTUtils
+    public partial class BTUtils
     {
         public static BTState GetState(bool state)
         {

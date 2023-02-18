@@ -5,7 +5,7 @@ namespace HamsterUtils
 {
     // 一个可以控制小地图缩放的横向Slider
     // 用于演示的工具，基本上不可复用，不过改一改拿出来也不是不行
-    public class ZoomSlider : HSlider
+    public partial class ZoomSlider : HSlider
     {
         [Export] private NodePath _CamPath;
 
@@ -16,11 +16,11 @@ namespace HamsterUtils
         {
             _Cam = GetNode<MinimapCamera2D>(_CamPath);
 
-            Connect("drag_started", this, nameof(OnDragStarted));
-            Connect("drag_ended", this, nameof(OnDragEnded));
+            Connect("drag_started",new Callable(this,nameof(OnDragStarted)));
+            Connect("drag_ended",new Callable(this,nameof(OnDragEnded)));
         }
 
-        public override void _Process(float delta)
+        public override void _Process(double delta)
         {
             if (_IsDragging) _Cam.SetZoom(Vector2.One * (float)Value);
         }

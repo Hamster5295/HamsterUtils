@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace HamsterUtils
 {
-    public class Minimap : ViewportContainer
+    public partial class Minimap : SubViewportContainer
     {
         public static Minimap Current { get; private set; }
 
@@ -11,7 +11,7 @@ namespace HamsterUtils
 
         private List<MinimapItem> _Items = new List<MinimapItem>();
 
-        private Viewport _Viewport;
+        private SubViewport _Viewport;
 
         private bool _IsReady = false;
 
@@ -19,7 +19,7 @@ namespace HamsterUtils
         {
             Current = this;
 
-            _Viewport = GetNode<Viewport>("Viewport");
+            _Viewport = GetNode<SubViewport>("SubViewport");
 
             _IsReady = true;
         }
@@ -33,7 +33,7 @@ namespace HamsterUtils
 
             item.Position = Vector2.Zero;
 
-            item.Connect(nameof(MinimapItem.HostExited), this, nameof(OnItemHostExited));
+            item.Connect(nameof(MinimapItem.HostExited),new Callable(this,nameof(OnItemHostExited)));
         }
 
         private void OnItemHostExited(MinimapItem which)

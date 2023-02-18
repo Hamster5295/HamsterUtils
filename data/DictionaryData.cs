@@ -13,9 +13,9 @@ namespace HamsterUtils
 
         protected void Read()
         {
-            if (Read(out var result))
+            if (Read<Dictionary>(out var result))
             {
-                datas = new Dictionary<K, V>((Dictionary)result.Result);
+                datas = new Dictionary<K, V>(result);
             }
         }
 

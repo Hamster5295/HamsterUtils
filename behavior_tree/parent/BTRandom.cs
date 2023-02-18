@@ -2,7 +2,7 @@ using Godot;
 
 namespace HamsterUtils
 {// 随机从子节点中选择一个执行
-    public class BTRandom : BTParent
+    public partial class BTRandom : BTParent
     {
         public BTRandom(params BTNode[] children) : base(children)
         {

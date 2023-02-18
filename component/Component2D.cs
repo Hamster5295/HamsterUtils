@@ -2,7 +2,7 @@ using Godot;
 
 namespace HamsterUtils
 {
-    public class Component2D<T> : Node2D where T : Node
+    public partial class Component2D<T> : Node2D where T : Node
     {
         private const int MAX_SEARCH_DEPTH = 10;
 

@@ -1,6 +1,6 @@
 namespace HamsterUtils
 {
-    public class BTWait : BTLeaf
+    public partial class BTWait : BTLeaf
     {
         private float _Timer = 0, _Length = 0;
         private bool _IsTicking = false;

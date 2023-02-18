@@ -1,7 +1,7 @@
 namespace HamsterUtils
 {
     // 从第一个子节点开始尝试运行，直到找到一个YES就停止，返回YES
-    public class BTSelector : BTParent
+    public partial class BTSelector : BTParent
     {
         public BTSelector(params BTNode[] children) : base(children)
         {
