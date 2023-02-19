@@ -5,8 +5,8 @@ namespace HamsterUtils
     public partial class MinimapItem : Node2D
     {
         // 当控制者从场景树被删除时释放该信号
-        [Signal] public delegate void HostExited(MinimapItem which);
-        [Signal] public delegate void Inited(MinimapItem which);
+        [Signal] public delegate void HostExitedEventHandler(MinimapItem which);
+        [Signal] public delegate void InitedEventHandler(MinimapItem which);
 
         [Export] private NodePath _HostPath;
 

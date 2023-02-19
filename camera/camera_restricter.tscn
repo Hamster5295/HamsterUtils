@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://vv8nuetsmjt8"]
+
+[ext_resource type="Script" path="res://hamster_utils/camera/CameraRestricter.cs" id="1_o0jtr"]
+
+[node name="CameraRestricter" type="Node"]
+script = ExtResource("1_o0jtr")

@@ -2,7 +2,7 @@ using Godot.Collections;
 
 namespace HamsterUtils
 {
-    public abstract class DictionaryData<K, V> : BaseData
+    public abstract partial class DictionaryData<K, V> : BaseData
     {
         private static Dictionary<K, V> datas = new Dictionary<K, V>();
 

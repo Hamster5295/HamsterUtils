@@ -2,7 +2,7 @@ using Godot;
 
 namespace HamsterUtils
 {
-    public abstract class BaseData : Node
+    public abstract partial class BaseData : Node
     {
         private FileAccess file;
 
