@@ -1,8 +1,9 @@
+using Godot;
 using Godot.Collections;
 
 namespace HamsterUtils
 {
-    public abstract partial class DictionaryData<K, V> : BaseData
+    public abstract partial class DictionaryData<[MustBeVariant] K, [MustBeVariant] V> : BaseData
     {
         private static Dictionary<K, V> datas = new Dictionary<K, V>();
 
@@ -19,13 +20,13 @@ namespace HamsterUtils
             }
         }
 
-        public static V Get(K key, V defaultValue)
+        public static V GetValue(K key, V defaultValue)
         {
             if (!datas.ContainsKey(key)) datas.Add(key, defaultValue);
             return datas[key];
         }
 
-        public static void Set(K key, V value)
+        public static void SetValue(K key, V value)
         {
             if (datas.ContainsKey(key)) datas[key] = value;
             else datas.Add(key, value);

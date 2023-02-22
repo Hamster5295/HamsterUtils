@@ -5,9 +5,9 @@ namespace HamsterUtils
     public abstract partial class CommonData : DictionaryData<string, Variant>
     {
         public static T Get<[MustBeVariant] T>(string key, T defaultValue)
-            => DictionaryData<string, Variant>.Get(key, Variant.From<T>(defaultValue)).As<T>();
+            => DictionaryData<string, Variant>.GetValue(key, Variant.From<T>(defaultValue)).As<T>();
 
         public static void Set<[MustBeVariant] T>(string key, T value)
-            => Set(key, Variant.From(value));
+            => SetValue(key, Variant.From(value));
     }
 }
