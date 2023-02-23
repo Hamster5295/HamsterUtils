@@ -4,15 +4,20 @@ namespace HamsterUtils
 {
     public abstract partial class BaseData : Node
     {
-        private FileAccess file;
+        private static FileAccess _file;
+
+        public override void _ExitTree()
+        {
+            _file.Close();
+        }
 
         private bool Read(out Variant result)
         {
             result = new Variant();
             var path = GetSavePath();
             if (!FileAccess.FileExists(path)) return false;
-            file = FileAccess.Open(path, FileAccess.ModeFlags.ReadWrite);
-            result = Json.ParseString(file.GetLine());
+            _file = FileAccess.Open(path, FileAccess.ModeFlags.ReadWrite);
+            result = Json.ParseString(_file.GetLine());
             return true;
         }
 
@@ -23,10 +28,10 @@ namespace HamsterUtils
             return isSuccessful;
         }
 
-        protected void Save(Variant obj)
+        protected static void Save(Variant obj)
         {
-            file.StoreLine(Json.Stringify(obj));
-            file.Flush();
+            _file.StoreLine(Json.Stringify(obj));
+            _file.Flush();
         }
 
         protected abstract string GetSavePath();

@@ -20,6 +20,8 @@ namespace HamsterUtils
             }
         }
 
+        public static void Save() => Save(datas);
+
         public static V GetValue(K key, V defaultValue)
         {
             if (!datas.ContainsKey(key)) datas.Add(key, defaultValue);
@@ -28,8 +30,7 @@ namespace HamsterUtils
 
         public static void SetValue(K key, V value)
         {
-            if (datas.ContainsKey(key)) datas[key] = value;
-            else datas.Add(key, value);
+            datas[key] = value;
         }
     }
 }

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bvhinq0hjtphs"
-path="res://.godot/imported/bt_doc_1.png-87b6e1669d2433bb173c1dece97e18a6.ctex"
+path="res://.godot/imported/bt_doc_1.png-02c795ccf572454f24f47a07503a12e8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://hamster_utils/behavior_tree/bt_doc_1.png"
-dest_files=["res://.godot/imported/bt_doc_1.png-87b6e1669d2433bb173c1dece97e18a6.ctex"]
+source_file="res://addons/hamster_utils/behavior_tree/bt_doc_1.png"
+dest_files=["res://.godot/imported/bt_doc_1.png-02c795ccf572454f24f47a07503a12e8.ctex"]
 
 [params]
 

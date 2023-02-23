@@ -11,9 +11,9 @@ namespace HamsterUtils
             if (EnableLog) GD.Print("[" + from.GetPath() + "]: " + message.ToString());
         }
 
-        public static void I(object message, string prefix = "I")
+        public static void I(object message)
         {
-            if (EnableLog) GD.Print("[" + prefix + "]: " + message.ToString());
+            if (EnableLog) GD.Print("[I]: " + message.ToString());
         }
 
         public static void W(Node from, object message)
@@ -21,9 +21,9 @@ namespace HamsterUtils
             if (EnableLog) GD.PushWarning("[" + from.GetPath() + "]: " + message.ToString());
         }
 
-        public static void W(object message, string prefix = "I")
+        public static void W(object message)
         {
-            if (EnableLog) GD.PushWarning("[" + prefix + "]: " + message.ToString());
+            if (EnableLog) GD.PushWarning("[W]: " + message.ToString());
         }
 
         public static void E(Node from, object message)
@@ -31,9 +31,9 @@ namespace HamsterUtils
             if (EnableLog) GD.PushError("[" + from.GetPath() + "]: " + message.ToString());
         }
 
-        public static void E(object message, string prefix = "I")
+        public static void E(object message)
         {
-            if (EnableLog) GD.PushError("[" + prefix + "]: " + message.ToString());
+            if (EnableLog) GD.PushError("[E]: " + message.ToString());
         }
 
         public static void Line(int count = 8, char divider = '=')
