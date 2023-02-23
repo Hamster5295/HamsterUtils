@@ -6,7 +6,7 @@ namespace HamsterUtils
     {
         private FileAccess file;
 
-        protected bool Read(out Variant result)
+        private bool Read(out Variant result)
         {
             result = new Variant();
             var path = GetSavePath();
@@ -16,9 +16,9 @@ namespace HamsterUtils
             return true;
         }
 
-        protected bool Read<T>(out T result)
+        protected bool Read<[MustBeVariant] T>(out T result)
         {
-            bool isSuccessful = Read(out var r);
+            var isSuccessful = Read(out var r);
             result = r.As<T>();
             return isSuccessful;
         }
