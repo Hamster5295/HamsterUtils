@@ -6,10 +6,10 @@ namespace HamsterUtils;
 
 public partial class ObjectPool : Node
 {
-    private const int Capacity = 32;
+    protected const int Capacity = 16;
 
     private static ObjectPool _instance;
-    private static readonly Dictionary<PackedScene, Queue<IPoolable>> Pool = new();
+    protected static readonly Dictionary<PackedScene, Queue<IPoolable>> Pool = new();
 
     public override void _Ready()
     {
